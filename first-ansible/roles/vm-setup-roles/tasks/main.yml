@@ -1,6 +1,8 @@
 ---
-- name: Example Ansible playbook
-  hosts: all
-  remote_user: root
-  roles:
-    - vm-setup-roles
+- name: Create directory
+  hosts: your_target_hosts
+  tasks:
+    - name: Create directory
+      file:
+        path: ./basic-http-server
+        state: directory
