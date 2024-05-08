@@ -1,5 +1,8 @@
 ---
-- name: create directory
-  file:
-    path: ./basic-http-server
-    state: directory
+- name: Create directory
+  hosts: your_target_hosts
+  tasks:
+    - name: Create directory
+      file:
+        path: ./basic-http-server
+        state: directory
