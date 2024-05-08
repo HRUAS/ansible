@@ -1,5 +1,5 @@
 ---
-- name: installing packages for python env
+- name: installing packages for Python environment
   become: yes
   yum:
     name:
@@ -11,6 +11,9 @@
     path: ./basic-http-server
     state: directory
 
-- name: install apache2
+- name: install Apache2
   become: yes
-  yum: name=apache2 update_cache:yes state:latest
+  yum:
+    name: httpd
+    update_cache: yes
+    state: latest
