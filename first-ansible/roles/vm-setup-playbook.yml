@@ -1,8 +1,21 @@
 ---
-- name: Create directory
+- name: Setup Python environment and Apache2
   hosts: all
+  become: yes
   tasks:
+    - name: Install Python packages
+      yum:
+        name:
+          - python3-pip
+        update_cache: yes
+
     - name: Create directory
       file:
         path: ./basic-http-server
         state: directory
+
+    - name: Install Apache2
+      yum:
+        name: httpd
+        update_cache: yes
+        state: latest
