@@ -1,6 +1,6 @@
 ---
 - name: Create directory
-  hosts: your_target_hosts
+  hosts: all
   tasks:
     - name: Create directory
       file:
