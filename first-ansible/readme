@@ -1,0 +1,1 @@
+ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/vm-setup-playbook.yml
