@@ -1,2 +1,0 @@
-[vm-hosts]
-server1 ansible_host=web1 ansible_connection=ssh ansible_user=root ansible_ssh_pass=Passw0rd
