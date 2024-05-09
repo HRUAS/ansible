@@ -5,12 +5,22 @@
     name:
       - python3-pip
     update_cache: yes
+  register: python_installation_result
+  post_tasks:
+    - name: Log python installation result
+      debug:
+        msg: "Python installation result: {{ python_installation_result }}"
 
 - name: Create directory
   become: yes
   file:
     path: ./basic-http-server
     state: directory
+  register: create_directory_result
+  post_tasks:
+    - name: Log create directory
+      debug:
+        msg: "Create directory result: {{ create_directory_result }}"
 
 - name: Install Apache2
   become: yes
@@ -18,3 +28,8 @@
     name: httpd
     update_cache: yes
     state: latest
+  register: install_apache2_result
+  post_tasks:
+    - name: Log apache2 install
+      debug:
+        msg: "Install apache2 result: {{ install_apache2_result }}"
