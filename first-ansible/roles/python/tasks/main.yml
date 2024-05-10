@@ -33,3 +33,21 @@
 - name: Log apache2 install
   debug:
     msg: "Install apache2 result: {{ install_apache2_result }}"
+
+- name: index.html copy
+  template: src=index.html dest=$HOME/index.html
+  register: copy_index_result
+
+- name: index.html copy result
+  debug:
+    msg: "index copy result: {{ copy_index_result }}"
+
+- name: index.html copy
+  template: src=updated.html dest=$HOME/index.html
+  notify:
+    - Restart Apache2
+  register: restart_apache_result
+
+- name: restart apache
+  debug:
+    msg: "restart_apache_result: {{ restart_apache_result }}"
