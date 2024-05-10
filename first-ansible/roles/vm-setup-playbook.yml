@@ -7,5 +7,5 @@
   handlers:
     - name: Restart Apache2
       service:
-        name: apache2
+        name: httpd
         state: restarted
