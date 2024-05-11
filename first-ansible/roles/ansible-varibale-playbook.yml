@@ -7,6 +7,10 @@
   vars:
     main_playbook_varibale: "Hello, world in main playbook"
     is_enabled: true
+    fruits:
+      - apple
+      - banana
+      - orange
 
   tasks:
     - name: String vaibale from - main_playbook_varibale
@@ -17,3 +21,7 @@
       debug:
         msg: "Varibale is_enabled is {{ is_enabled }}"
       when: is_enabled
+
+    - name: List Variable
+      debug:
+        msg: "List varibale is {{ fruits }}"
