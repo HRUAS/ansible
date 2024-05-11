@@ -17,4 +17,3 @@
       debug:
         msg: "Varibale is true {{ is_enabled }}"
       when: is_enabled
-      msg: "Varibale is true {{ is_enabled }}"
