@@ -32,6 +32,12 @@
       debug:
         msg: "List varibale is {{ fruits_list }} and at index 0 we have {{ fruits_list[0] }}"
 
-    - name:
+    - name: Dictionary Varibale
       debug:
         msg: "Fruit dictionary is {{ fruits_dict }} and apple price is {{ fruits_dict.apple }}"
+
+    - name: Use Register Keyword
+      command: echo "{{ fruits_dict['apple'] }}"
+      register: apple_price_register_var
+      debug:
+        msg: "Data stored in Register variable {{ apple_price_register_var }} "
