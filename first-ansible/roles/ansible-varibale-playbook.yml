@@ -37,5 +37,7 @@
     - name: Use Register Keyword
       command: echo "{{ fruits_dict['apple'] }}"
       register: apple_price_register_var
+    
+    - name: Display Register Variable
       debug:
         msg: "Data stored in Register variable {{ apple_price_register_var.stdout }}"
