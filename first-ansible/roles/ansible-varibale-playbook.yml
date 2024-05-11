@@ -1,11 +1,11 @@
 ---
-- name: Ansible Varibale playbook
+- name: Ansible Variable playbook
   hosts: all
   roles:
-    - ansible-varibales
+    - ansible-variables
 
   vars:
-    main_playbook_varibale: "Hello, world in main playbook"
+    main_playbook_variable: "Hello, world in main playbook"
     is_enabled: true
     fruits_list:
       - apple
@@ -16,28 +16,26 @@
       banana: 0.51
       orange: 0.52
 
-
-
   tasks:
-    - name: String vaibale from - main_playbook_varibale
+    - name: String variable from - main_playbook_variable
       debug:
-        var: main_playbook_varibale
+        var: main_playbook_variable
 
-    - name: boolean Variable
+    - name: Boolean Variable
       debug:
-        msg: "Varibale is_enabled is {{ is_enabled }}"
+        msg: "Variable is_enabled is {{ is_enabled }}"
       when: is_enabled
 
     - name: List Variable
       debug:
-        msg: "List varibale is {{ fruits_list }} and at index 0 we have {{ fruits_list[0] }}"
+        msg: "List variable is {{ fruits_list }} and at index 0 we have {{ fruits_list[0] }}"
 
-    - name: Dictionary Varibale
+    - name: Dictionary Variable
       debug:
-        msg: "Fruit dictionary is {{ fruits_dict }} and apple price is {{ fruits_dict.apple }}"
+        msg: "Fruit dictionary is {{ fruits_dict }} and apple price is {{ fruits_dict['apple'] }}"
 
     - name: Use Register Keyword
       command: echo "{{ fruits_dict['apple'] }}"
       register: apple_price_register_var
       debug:
-        msg: "Data stored in Register variable {{ apple_price_register_var }} "
+        msg: "Data stored in Register variable {{ apple_price_register_var.stdout }}"
