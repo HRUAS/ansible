@@ -1,0 +1,4 @@
+---
+- name: String varibale Test2
+  debug:
+    var: main_playbook_varibale

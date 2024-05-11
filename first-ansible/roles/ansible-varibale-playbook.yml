@@ -1,0 +1,13 @@
+---
+- name: Ansible Varibale playbook
+  hosts: all
+  roles:
+    - ansible-varibales
+
+  vars:
+    main_playbook_varibale: "Hello, world in main playbook"
+
+  tasks:
+    - name: String vaibale from - main_playbook_varibale
+      debug:
+        var: main_playbook_varibale
