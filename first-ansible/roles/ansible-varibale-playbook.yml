@@ -15,5 +15,5 @@
 
     - name: boolean Variable
       debug:
-        msg: "Varibale is true {{ is_enabled }}"
+        msg: "Varibale is_enabled is {{ is_enabled }}"
       when: is_enabled
