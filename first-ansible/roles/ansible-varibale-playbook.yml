@@ -34,4 +34,4 @@
 
     - name:
       debug:
-        msg: "Fruit dictionary is {{ fruits_dict }}"
+        msg: "Fruit dictionary is {{ fruits_dict }} and apple price is {{ fruits_dict.apple }}"
