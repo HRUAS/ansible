@@ -24,4 +24,4 @@
 
     - name: List Variable
       debug:
-        msg: "List varibale is {{ fruits }}"
+        msg: "List varibale is {{ fruits }} and at index 0 we have {{ fruits[0] }}"
