@@ -23,6 +23,17 @@
       banana: 0.51
       orange: 0.52
 
+    # List of Dictionaries
+    fruit_basket:
+      - name: John
+        fruits:
+          - apple
+          - orange
+      - name: Jane
+        fruits:
+          - banana
+          - apple
+
   tasks:
     - name: String variable from - main_playbook_variable
       debug:
@@ -48,3 +59,7 @@
     - name: Display Register Variable
       debug:
         msg: "Data stored in Register variable {{ apple_price_register_var.stdout }}"
+
+    - name: Get the value of apple from the nested variable
+      debug:
+        msg: "Price of apple in John's basket is {{ fruits_dict[fruit_basket[0].fruits[0]] }}"
