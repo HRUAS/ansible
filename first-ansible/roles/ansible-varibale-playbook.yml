@@ -6,8 +6,14 @@
 
   vars:
     main_playbook_varibale: "Hello, world in main playbook"
+    is_enabled: true
 
   tasks:
     - name: String vaibale from - main_playbook_varibale
       debug:
         var: main_playbook_varibale
+
+    - name: boolean Variable
+      debug:
+        msg: "Varibale is true"
+      when: is_enabled
