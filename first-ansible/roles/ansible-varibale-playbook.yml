@@ -12,6 +12,7 @@
     - name: String vaibale from - main_playbook_varibale
       debug:
         var: main_playbook_varibale
+        msg: "Just a random varibale"
 
     - name: boolean Variable
       debug:
