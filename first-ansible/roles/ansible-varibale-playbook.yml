@@ -35,8 +35,8 @@
           - apple
 
     # Get vars from file
-    vars_files:
-      - my-vars.yml
+  vars_files:
+    - my-vars.yml
 
   tasks:
     - name: String variable from - main_playbook_variable
@@ -75,4 +75,4 @@
 
     - name: Getting var from file
       debug:
-        msg: "mars_from_my_vars_file: {{ mars_from_my_vars_file }}"
+        msg: "my_vars_from_my_vars_file: {{ my_vars_from_my_vars_file }}"
