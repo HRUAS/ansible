@@ -5,6 +5,12 @@
     state: present
   when: install_apache_flag
 
+- name: Print OS and Kernal Version
+  debug:
+    var:
+      - ansible_facts['kernal_version']
+      - ansible_facts['os_family']
+
 - name: Combine conditions using ansible facts
   debug:
     var:
