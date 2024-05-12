@@ -25,7 +25,7 @@
 #     var: ansible_facts
 
 - name: Create a file and enter a message
-  ansible.builtin.copy:
+  copy:
     content: "hi, This is the message you want to enter into the file."
     dest: $HOME/test-file.txt
 
