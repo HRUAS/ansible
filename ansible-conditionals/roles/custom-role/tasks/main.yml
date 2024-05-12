@@ -24,8 +24,10 @@
 #   debug:
 #     var: ansible_facts
 
-- name: Create the file
-  command: echo "hi, This is a test." > $HOME/test-file.txt
+- name: Create a file and enter a message
+  ansible.builtin.copy:
+    content: "hi, This is the message you want to enter into the file."
+    dest: $HOME/test-file.txt
 
 - name: Cat the file
   command: cat $HOME/test-file.txt
