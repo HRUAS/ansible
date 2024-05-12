@@ -1,4 +1,3 @@
----
 - name: Example for environment variable
   hosts: all
   become: yes
@@ -10,10 +9,11 @@
     MY_VAR2: "ENV2"
 
   tasks:
-    - name: Environment varibale at playbook level
-      ansible.builtin.command: "echo $EXAMPLE"
+    - name: Environment variable at playbook level
+      debug:
+        msg: "{{ lookup('env', 'EXAMPLE') }}"
 
     - name: Task level environment variable
       environment:
-        MY_TASK_ENV_VAR: "Task level env varibale"
+        MY_TASK_ENV_VAR: "Task level env variable"
       ansible.builtin.command: "echo $MY_TASK_ENV_VAR"

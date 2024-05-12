@@ -13,7 +13,8 @@ server3 ansible_host=web1 ansible_ssh_private_key_file=/home/thor/.ssh/id_rsa an
 3) Now login without password
 
 ---------------- Ansible Varibales ---------------------
-1) ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v
+1)
+ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v
 
 
 2) Variable taken from Run time
