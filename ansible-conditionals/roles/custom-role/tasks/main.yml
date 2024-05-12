@@ -20,6 +20,19 @@
     - ansible_os_family == "RedHat"
     - ansible_distribution_major_version == "7"
 
-- name: Print all facts
+# - name: Print all facts
+#   debug:
+#     var: ansible_facts
+
+- name:
+  command: cat $HOME/ansible/ansible-conditionals/test-file.txt
+  register: test_file_content
+
+- name: Use the file varibale in Conditional
   debug:
-    var: ansible_facts
+    msg: "test_file_content: {{test_file_content.stdout}}"
+
+- name: Use the file varibale in Conditional
+  debug:
+    msg: "test_file_content: {{test_file_content.stdout}}"
+  when: test_file_content.stdout.find('hi') != -1
