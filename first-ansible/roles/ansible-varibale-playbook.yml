@@ -34,6 +34,10 @@
           - banana
           - apple
 
+    # Get vars from file
+    vars_files:
+      - my-vars.yml
+
   tasks:
     - name: String variable from - main_playbook_variable
       debug:
@@ -68,3 +72,7 @@
     - name: Using Jinga 2 Filter on variables
       debug:
         var: fruits_dict.keys() | list | map('upper') | list
+
+    - name: Getting var from file
+      debug:
+        msg: "{{ mars_from_my_vars_file }}"
