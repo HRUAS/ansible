@@ -39,6 +39,9 @@
   vars_files:
     - my-vars.yml
 
+  environment:
+    EXAMPLE: "######## this is env variable ############"
+
   tasks:
     - name: String variable from - main_playbook_variable
       debug:
@@ -82,3 +85,6 @@
     - name: Pass varibale on run-time
       debug:
         msg: "Run time variable: {{ version }}"
+
+    - name: Print env variable
+      ansible.builtin.command: "echo $EXAMPLE"
