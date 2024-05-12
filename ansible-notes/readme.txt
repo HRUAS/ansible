@@ -13,11 +13,14 @@ server3 ansible_host=web1 ansible_ssh_private_key_file=/home/thor/.ssh/id_rsa an
 3) Now login without password
 
 ---------------- Ansible Varibales ---------------------
-ansible-varibale-playbook.yml
-ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v
+1) ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v
 
 
+2) Variable taken from Run time
+ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v --extra-vars '{"version":"1.0","other_varibale":"foo"}'
 
+3) Pass varibale file at run-time
+ansible-playbook --inventory first-ansible/inventory/vm-setup-playbook/hosts first-ansible/roles/ansible-varibale-playbook.yml -v --extra-vars "@my-vars.yml"
 
 Below task is incorrect : The error you are encountering is due to the incorrect syntax in the task where you are trying to use the register keyword along with the
 debug and command actions in the same task. In Ansible, you cannot have conflicting action statements in the same task.

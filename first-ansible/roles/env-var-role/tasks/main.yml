@@ -1,0 +1,4 @@
+---
+- name: Custom tasks
+  debug:
+    msg: "No Task here"

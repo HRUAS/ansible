@@ -1,0 +1,21 @@
+---
+- name: Example for environment variable
+  hosts: all
+  become: yes
+  roles:
+    - env-var-role
+
+  environment:
+    EXAMPLE: "ENV1"
+    MY_VAR2: "ENV2"
+
+  tasks:
+    - name: Environment varibale at playbook level
+      ansible.bultin.command: "echo $EXAMPLE"
+      debug:
+        msg: "Printing environmnt varibale"
+
+    - name: Task level environment variable
+      environment:
+        MY_TASK_ENV_VAR: "Task level env varibale"
+      ansible.bultin.command: "echo $MY_TASK_ENV_VAR"
