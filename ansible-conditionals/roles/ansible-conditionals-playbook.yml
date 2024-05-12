@@ -1,0 +1,5 @@
+---
+- name: Ansible Conditionals Playbook
+  hosts: all
+  roles:
+    - custom-role

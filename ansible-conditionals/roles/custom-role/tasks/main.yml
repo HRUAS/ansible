@@ -1,0 +1,6 @@
+---
+- name: Install Apache2 Server
+  yum:
+    name: httpd
+    state: absent
+  when: install_apache_flag

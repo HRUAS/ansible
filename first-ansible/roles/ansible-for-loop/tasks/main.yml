@@ -1,0 +1,4 @@
+---
+- name: Main for ansible loop
+  debug:
+    msg: "Nothing in main"
