@@ -16,4 +16,4 @@
     - name: Task level environment variable
       environment:
         MY_TASK_ENV_VAR: "Task level env variable"
-      ansible.builtin.command: "echo $MY_TASK_ENV_VAR"
+      command: "echo $MY_TASK_ENV_VAR"
