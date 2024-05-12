@@ -12,8 +12,6 @@
   tasks:
     - name: Environment varibale at playbook level
       ansible.builtin.command: "echo $EXAMPLE"
-      debug:
-        msg: "Printing environmnt varibale"
 
     - name: Task level environment variable
       environment:
