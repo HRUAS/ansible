@@ -11,11 +11,11 @@
 
   tasks:
     - name: Environment varibale at playbook level
-      ansible.bultin.command: "echo $EXAMPLE"
+      ansible.builtin.command: "echo $EXAMPLE"
       debug:
         msg: "Printing environmnt varibale"
 
     - name: Task level environment variable
       environment:
         MY_TASK_ENV_VAR: "Task level env varibale"
-      ansible.bultin.command: "echo $MY_TASK_ENV_VAR"
+      ansible.builtin.command: "echo $MY_TASK_ENV_VAR"
