@@ -24,8 +24,11 @@
 #   debug:
 #     var: ansible_facts
 
-- name:
-  command: cat $HOME/ansible/ansible-conditionals/test-file.txt
+- name: Create the file
+  command: echo "hi, This is a test." > $HOME/test-file.txt
+
+- name: Cat the file
+  command: cat $HOME/test-file.txt
   register: test_file_content
 
 - name: Use the file varibale in Conditional
