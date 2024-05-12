@@ -29,7 +29,7 @@
     content: "hi, This is the message you want to enter into the file."
     dest: $HOME/test-file.txt
 
-- name: Cat the file
+- name: Cat the file and Register in a variable
   command: cat $HOME/test-file.txt
   register: test_file_content
 
@@ -41,3 +41,8 @@
   debug:
     msg: "test_file_content: {{test_file_content.stdout}}"
   when: test_file_content.stdout.find('hi') != -1
+
+- name: For loop implementation
+  command: echo {{item}}
+  loop: [0,1,2,3,4,5,6,7,8,9]
+  when: item > 3
