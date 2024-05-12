@@ -75,4 +75,4 @@
 
     - name: Getting var from file
       debug:
-        msg: "{{ mars_from_my_vars_file }}"
+        msg: "mars_from_my_vars_file: {{ mars_from_my_vars_file }}"
