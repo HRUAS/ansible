@@ -87,4 +87,5 @@
         msg: "Run time variable: {{ version }}"
 
     - name: Print env variable
-      ansible.builtin.command: "echo $EXAMPLE"
+      debug:
+        msg: "{{ lookup('env', 'EXAMPLE') }}"
