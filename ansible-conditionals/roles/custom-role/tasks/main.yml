@@ -4,3 +4,12 @@
     name: httpd
     state: present
   when: install_apache_flag
+
+- name: Combine conditions using ansible facts
+  debug:
+    var:
+      - ansible_facts['kernal_version']
+      - ansible_facts['os_family']
+  when:
+    - ansible_facts['os_family'] == "Debian"
+    - ansible_facts['distribution_major_version'] == 20
