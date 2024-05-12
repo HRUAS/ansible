@@ -63,3 +63,8 @@
     - name: Get the value of apple from the nested variable
       debug:
         msg: "Price of apple in John's basket is {{ fruits_dict[fruit_basket[0].fruits[0]] }}"
+
+    # Jinja 2 filters
+    - name: Using Jinga 2 Filter on variables
+      debug:
+        var: fruits_dict.keys() | list | map('upper') | list
