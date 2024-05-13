@@ -32,15 +32,15 @@
 
 - name: Display port 80 check results
   debug:
-    msg: "Port 80 check: {{ port_80_check.failed }}"
+    msg: "Port 80 check: {{ port_80_check }}"
 
 - name: Display port 22 check results
   debug:
-    msg: "Port 22 check: {{ port_22_check.failed }}"
+    msg: "Port 22 check: {{ port_22_check }}"
 
 - name: Display master port 22 check results
   debug:
-    msg: "Master port 22 check: {{ master_port_22_check.failed }}"
+    msg: "Master port 22 check: {{ master_port_22_check }}"
 
 - name: Display bash shell check results
   debug:
