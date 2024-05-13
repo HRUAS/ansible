@@ -3,6 +3,6 @@
   yum:
     name:
       - git
-      - nginx
+      - docker
       - curl
     state: latest
