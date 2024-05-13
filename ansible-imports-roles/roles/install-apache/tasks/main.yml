@@ -4,7 +4,6 @@
   yum:
     name: httpd
     state: present
-    update cache: yes
 
 - name: Starte Apache service
   become: yes
