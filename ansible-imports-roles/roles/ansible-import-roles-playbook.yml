@@ -1,0 +1,7 @@
+---
+- name: Ansible impoty and roles playbook
+  hosts: all
+  become: yes
+  roles:
+    # - custom-role
+    - install-apache

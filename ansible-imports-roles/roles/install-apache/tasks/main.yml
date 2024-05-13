@@ -1,0 +1,13 @@
+---
+- name: Install Apache web server
+  become: yes
+  yum:
+    name: httpd
+    state: present
+    update cache: yes
+
+- name: Starte Apache service
+  become: yes
+  service:
+    name: httpd
+    state: started
