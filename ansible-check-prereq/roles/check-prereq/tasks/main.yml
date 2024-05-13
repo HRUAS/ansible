@@ -1,33 +1,65 @@
 ---
-- name: Check connectivity from master to child on port 80
-  wait_for:
-    host: "{{ ansible_host  }}"
-    port: 80
-    timeout: 5
-  delegate_to: localhost
-  ignore_errors: yes
-  register: port_80_check
+- name: Include ports from variable file
+  include_vars:
+    file: ports.yml
 
-- name: Check connectivity from master to child on port 22
-  wait_for:
-    host: "{{ ansible_host  }}"
-    port: 22
-    timeout: 5
-  delegate_to: localhost
-  ignore_errors: yes
-  register: port_22_check
+# - name: Check connectivity from master to child on port 80
+#   wait_for:
+#     host: "{{ ansible_host  }}"
+#     port: 80
+#     timeout: 5
+#   delegate_to: localhost
+#   ignore_errors: yes
+#   register: port_80_check
 
-- name: Check connectivity from child to master on port 22
-  wait_for:
-    host: localhost
-    port: 22
-    timeout: 5
-  ignore_errors: yes
-  register: master_port_22_check
+# - name: Check connectivity from master to child on port 22
+#   wait_for:
+#     host: "{{ ansible_host  }}"
+#     port: 22
+#     timeout: 5
+#   delegate_to: localhost
+#   ignore_errors: yes
+#   register: port_22_check
+
+# - name: Check connectivity from child to master on port 22
+#   wait_for:
+#     host: localhost
+#     port: 22
+#     timeout: 5
+#   ignore_errors: yes
+#   register: master_port_22_check
+
+- name: Check connectivity from master to child servers
+  block:
+    - name: Check ports connectivity
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: "{{ item }}"
+        state: started
+        timeout: 5
+      loop: "{{ ports }}"
+      ignore_errors: yes
+      register: master_to_child_checks
+  delegate_to: localhost
+
+- name: Check connectivity from child to master server
+  block:
+    - name: Check ports connectivity
+      wait_for:
+        host: "{{ ansible_host }}"
+        port: "{{ item }}"
+        state: started
+        timeout: 5
+      loop: "{{ ports }}"
+      ignore_errors: yes
+      register: child_to_master_checks
+  delegate_to: localhost
 
 - name: Check if default shell of the user on child is bash
-  stat:
-    path: /bin/bash
+  # stat:
+  #   path: /bin/bash
+  # register: bash_check
+  shell: "getent passwd {{ ansible_user }} | cut -d: -f7"
   register: bash_check
 
 - name: Display port 80 check results
