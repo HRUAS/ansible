@@ -1,0 +1,5 @@
+---
+- name: Install Lighttpd
+  yum:
+    name: lighttpd
+    state: present

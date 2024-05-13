@@ -1,0 +1,11 @@
+---
+- import_tasks: install-lighttpd.yml
+- name: Generate Configuration File
+  template:
+    src: my-config.j2
+    dest: /etc/lighttpd.conf
+    owner: root
+    group: root
+    mode: '0644'
+  vars:
+    server_port: 80
