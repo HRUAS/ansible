@@ -1,0 +1,46 @@
+- name: Check connectivity from master to child on port 80
+  wait_for:
+    host: "{{ inventory_hostname }}"
+    port: 80
+    timeout: 5
+  delegate_to: localhost
+  ignore_errors: yes
+  register: port_80_check
+
+- name: Check connectivity from master to child on port 22
+  wait_for:
+    host: "{{ inventory_hostname }}"
+    port: 22
+    timeout: 5
+  delegate_to: localhost
+  ignore_errors: yes
+  register: port_22_check
+
+- name: Check connectivity from child to master on port 22
+  wait_for:
+    host: localhost
+    port: 22
+    timeout: 5
+  ignore_errors: yes
+  register: master_port_22_check
+
+- name: Check if default shell of the user on child is bash
+  stat:
+    path: /bin/bash
+  register: bash_check
+
+- name: Display port 80 check results
+  debug:
+    msg: "Port 80 check: {{ port_80_check.failed }}"
+
+- name: Display port 22 check results
+  debug:
+    msg: "Port 22 check: {{ port_22_check.failed }}"
+
+- name: Display master port 22 check results
+  debug:
+    msg: "Master port 22 check: {{ master_port_22_check.failed }}"
+
+- name: Display bash shell check results
+  debug:
+    msg: "Bash shell check: {{ bash_check.stat.exists }}"
