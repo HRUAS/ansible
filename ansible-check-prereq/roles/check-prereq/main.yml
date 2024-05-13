@@ -1,3 +1,4 @@
+---
 - name: Check connectivity from master to child on port 80
   wait_for:
     host: "{{ inventory_hostname }}"
