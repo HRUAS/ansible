@@ -44,4 +44,4 @@
 
 - name: Display bash shell check results
   debug:
-    msg: "Bash shell check: {{ bash_check.stat.exists }}"
+    msg: "Bash shell check: {{ bash_check }}"
