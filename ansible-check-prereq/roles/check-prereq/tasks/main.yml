@@ -31,7 +31,7 @@
 
 - name: Check connectivity from master to child servers
   block:
-    - name: Check ports connectivity
+    - name: Check connectivity from master to child servers
       wait_for:
         host: "{{ ansible_host }}"
         port: "{{ item }}"
@@ -44,7 +44,7 @@
 
 - name: Check connectivity from child to master server
   block:
-    - name: Check ports connectivity
+    - name: Check connectivity from child to master server
       wait_for:
         host: "{{ ansible_host }}"
         port: "{{ item }}"
@@ -62,17 +62,13 @@
   shell: "getent passwd {{ ansible_user }} | cut -d: -f7"
   register: bash_check
 
-- name: Display port 80 check results
+- name: Display master_to_child_checks
   debug:
-    msg: "Port 80 check: {{ port_80_check }}"
+    msg: "master_to_child_checks: {{ master_to_child_checks }}"
 
-- name: Display port 22 check results
+- name: Display child_to_master_checks
   debug:
-    msg: "Port 22 check: {{ port_22_check }}"
-
-- name: Display master port 22 check results
-  debug:
-    msg: "Master port 22 check: {{ master_port_22_check }}"
+    msg: "child_to_master_checks: {{ child_to_master_checks }}"
 
 - name: Display bash shell check results
   debug:
